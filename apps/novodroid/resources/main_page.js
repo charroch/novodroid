@@ -11,20 +11,16 @@ Novodroid.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'labelView checkboxView'.w(),
+    childViews: 'workspaceView'.w(),
     classNames: ['clock'],
-    
-    labelView: SC.LabelView.design({
-      layout: { centerX: 0, centerY: 0, width: 300, height: 50 },
-      textAlign: SC.ALIGN_CENTER,
-      tagName: "h1",
-      valueBinding: 'Novodroid.appController.greeting'
-      }),
-    
-    checkboxView: SC.CheckboxView.design({
-      layout: { centerX: 0, centerY: 30, width: 300, height: 18 },
-      title: "Show Clock",
-      valueBinding: "Novodroid.appController.isClockShowing",
-    })   
+    workspaceView: SC.SplitView.design({
+      dividerThickness: 1,
+      defaultThickness: 300,
+      topLeftView: SC.SourceListView.design({
+        content: ["Devin Torres", "Charles Jolley", "Peter Wagenet"]
+        }),
+
+      bottomRightView: SC.View
+    })
   })
 });
